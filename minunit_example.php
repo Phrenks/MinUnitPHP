@@ -1,7 +1,4 @@
 <?php
-global $tests_run;
-$tests_run = 0;
-
 include 'minunit.php';
 
 function run_good_test(){
@@ -24,6 +21,7 @@ function run_all_tests(){
   return 0;
 }
 
+mu_reset();
 $result = run_all_tests();
 echo 'ALL TESTS PASSED<br/>';
 

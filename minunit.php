@@ -5,11 +5,11 @@
  */
 
 function mu_assert($message, $test){
-  global $exception;
+  global $mu_exception;
   
   //If the condition is false, store the global exception
-  if($test == false && $exception == null)
-    $exception = $message;
+  if($test == false && $mu_exception == null)
+    $mu_exception = $message;
 } 
 
 //Parameters:
@@ -17,7 +17,7 @@ function mu_assert($message, $test){
 //The class it belongs to, if there is one
 function mu_run_test(){
   //Get the global variables
-  global $tests_run, $exception;
+  global $mu_tests_run, $mu_exception;
 
   //Check the number of parameters is 1 or 2
   if(func_num_args() < 1 || func_num_args() > 2)
@@ -34,14 +34,21 @@ function mu_run_test(){
   }
 
   //If one of the asserts failed, show the error and quit
-  if($exception){
-    echo "Assert failed: ".$exception."<br/>";
-    echo $tests_run." tests were run successfully.<br/>";
+  if($mu_exception){
+    echo "Assert failed: ".$mu_exception."<br/>";
+    echo $mu_tests_run." tests were run successfully.<br/>";
     exit();
   }
 
   //Otherwise, increase the number of test runs
-  $tests_run++;
+  $mu_tests_run++;
+}
+
+//Reset the global variables
+function mu_reset(){
+  global $mu_exception, $mu_tests_run;
+  $mu_exception = null;
+  $mu_tests_run = 0;
 }
 
 ?>
