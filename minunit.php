@@ -37,7 +37,8 @@ function mu_run_test(){
 
   //If one of the asserts failed, show the error and quit
   if($mu_exception){
-    echo "Assert failed: ".$mu_exception."<br/>";
+    echo "TEST ".func_get_arg(0)." FAILED<br/>";
+    echo "Error: ".$mu_exception."<br/>";
     echo $mu_tests_run." tests were run successfully.<br/>";
     exit();
   }
