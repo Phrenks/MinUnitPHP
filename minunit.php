@@ -1,7 +1,9 @@
 <?php
-/* minunit.php
+/* 
+ * minunit_example.php
  * Inspired by http://www.jera.com/techinfo/jtns/jtn002.html
- * Made for PHP by Francisco José Marín (Phrenks)
+ * Made for PHP by Francisco José Marín Pino (Phrenks)
+ * phrenks@gmail.com
  */
 
 function mu_assert($message, $test){
